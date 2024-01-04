@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace StarWars_Core.Interface
 {
-    public interface  IPeopleService
+    public interface  IFilmService
     {
-        Task<ApiResponse<string>> TestPing();
-        Task<ApiResponse<PeopleModel>> GetPeopleById(int id);
-        Task<ApiResponse<List<PeopleModel>>> GetMultiplePeople();
+        Task<ApiResponse<FilmModel>> GetFilmById(int id);
     }
 }

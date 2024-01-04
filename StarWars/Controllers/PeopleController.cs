@@ -21,7 +21,6 @@ namespace StarWars.Controllers
         public PeopleController(IPeopleService peopleService)
         {
             _peopleService = peopleService;
-           
         }
         [HttpGet]
         [Route("TestPing")]
@@ -31,17 +30,15 @@ namespace StarWars.Controllers
         }
         [HttpGet]
         [Route("GetPeopleById/{id}")]
-        public async Task<ApiResponse<StarWarsModel>> GetPeopleById(int id)
+        public async Task<ApiResponse<PeopleModel>> GetPeopleById(int id)
         {
-            //return new ApiResponse<string>().SetResponse(id);
             return await _peopleService.GetPeopleById(id);
         }
 
         [HttpGet]
         [Route("GetMultiplePeople")]
-        public async Task<ApiResponse<List<StarWarsModel>>> GetMultiplePeople(int id,int id2)
+        public async Task<ApiResponse<List<PeopleModel>>> GetMultiplePeople()
         {
-            //return new ApiResponse<string>().SetResponse(id);
             return await _peopleService.GetMultiplePeople();
         }
     }

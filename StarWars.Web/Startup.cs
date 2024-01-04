@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StarWars.Web.Interface;
+using StarWars.Web.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace StarWars.Web
@@ -24,6 +27,13 @@ namespace StarWars.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            HttpClient httpClient = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44359/"),
+            };
+            services.AddSingleton<HttpClient>(httpClient);
+            services.AddScoped<IPeopleService, PeopleService>();
+            services.AddScoped<IFilmService, FilmService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,89 @@
+﻿@model StarWars.Web.Model.FilmModel
+@{
+    ViewData["Title"] = "Film";
+}
+
+
+<h3>Film Data</h3>
+@if (ViewBag.Error != null)
+{
+    <span style="color:red">@ViewBag.Error</span>
+}
+@if (Model != null)
+{
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.Title)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Episode_Id)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Opening_Crawl)</th>
+           
+                <th>@Html.DisplayNameFor(e => e.Director)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Producer)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Release_Date)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Characters)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Planets)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Starships)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Vehicles)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Species)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Created)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Edited)</th>
+            
+                <th>@Html.DisplayNameFor(e => e.Url)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Title</td>
+            <td>@Model.Episode_Id</td>
+            <td>@Model.Opening_Crawl</td>
+            <td>@Model.Director</td>
+            <td>@Model.Producer</td>
+            <td>@Model.Release_Date</td>
+            <td>
+                @foreach (var character in Model.Characters)
+                {
+                    @character
+                }
+            </td>
+            <td>
+                @foreach (var planet in Model.Planets)
+                {
+                    @planet
+                }
+            </td>
+            <td>
+                @foreach (var starship in Model.Starships)
+                {
+                    @starship
+                }
+            </td>
+            <td>
+                @foreach (var vehicle in Model.Vehicles)
+                {
+                    @vehicle
+                }
+            </td>
+            <td>
+                @foreach (var species in Model.Species)
+                {
+                    @species
+                }
+            </td>
+            <td>@Model.Created</td>
+            <td>@Model.Edited</td>
+            <td>@Model.Url</td></tr>
+        </tbody>
+    </table>
+}

@@ -42,7 +42,7 @@ namespace StarWars
                                 new RateLimitRule
                                 {
                                     Endpoint = "*",
-                                    Period = "10s",
+                                    Period = "30s",
                                     Limit = 2,
                                 }
                         };

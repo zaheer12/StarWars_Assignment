@@ -1,0 +1,91 @@
+﻿@model StarWars.Web.Model.PeopleModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<h3>People Data</h3>
+@if (ViewBag.Error != null)
+{
+    <span style="color:red">@ViewBag.Error</span>
+}
+@if (Model != null)
+{
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.Name)</th>
+
+                <th>@Html.DisplayNameFor(e => e.height)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Mass)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Hair_Color)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Skin_Color)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Eye_Color)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Birth_year)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Gender)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Homeworld)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Films)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Species)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Vehicles)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Starships)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Created)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Edited)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Url)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Name</td>
+                <td>@Model.height</td>
+                <td>@Model.Mass</td>
+                <td>@Model.Hair_Color</td>
+                <td>@Model.Skin_Color</td>
+                <td>@Model.Eye_Color</td>
+                <td>@Model.Birth_year</td>
+                <td>@Model.Gender</td>
+                <td>@Model.Homeworld</td>
+                <td>
+                    @foreach (var film in Model.Films)
+                    {
+                        @film
+                    }
+                </td>
+
+                <td>
+                    @foreach (var species in Model.Species)
+                    {
+                        @species
+                    }
+                </td>
+                <td>
+                    @foreach (var vehicle in Model.Vehicles)
+                    {
+                        @vehicle
+                    }
+                </td>
+                <td>
+                    @foreach (var starship in Model.Starships)
+                    {
+                        @starship
+                    }
+                </td>
+                <td>@Model.Created</td>
+                <td>@Model.Edited</td>
+                <td>@Model.Url</td>
+            </tr>
+        </tbody>
+    </table>
+}

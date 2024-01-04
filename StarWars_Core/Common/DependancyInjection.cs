@@ -10,6 +10,7 @@ namespace StarWars_Core.Common
         {
             // Add data access layer services
             services.AddScoped<IPeopleService, PeopleService>();
+            services.AddScoped<IFilmService, FilmService>();
 
             // Add business logic layer services
             return services;

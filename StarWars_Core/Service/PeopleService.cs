@@ -15,7 +15,6 @@ namespace StarWars_Core.Service
         //private readonly IPeopleRepository _peopleRepository;
         private readonly HttpClient _httpClient;
 
-
         public PeopleService(HttpClient httpClient)
         {
             //_peopleRepository = peopleRepository;
@@ -25,16 +24,16 @@ namespace StarWars_Core.Service
         public async Task<ApiResponse<string>> TestPing()
         {
             string? success = "Test Ping";
-           var data= await Task.Run(() =>
-            {
-              return ResponseHelper.GetResponse(success);
-            });
+            var data = await Task.Run(() =>
+              {
+                  return ResponseHelper.GetResponse(success);
+              });
             return data;
         }
-        public async Task<ApiResponse<StarWarsModel?>> GetPeopleById(int id)
+        public async Task<ApiResponse<PeopleModel?>> GetPeopleById(int id)
         {
-            var result =await GetPeople(id);
-            if (result!=null)
+            var result = await GetPeople(id);
+            if (result != null)
             {
                 var data = ResponseHelper.GetResponse(result);
                 return data;
@@ -43,20 +42,22 @@ namespace StarWars_Core.Service
             {
                 return ResponseHelper.GetResponse(result, false, APIConstant.ResponseMessage.Error, APIConstant.ErrorMessage.DATANOTFOUND, APIConstant.ResponseStatusCode.NotFound);
             }
-            
+
 
         }
-        public async Task<ApiResponse<List<StarWarsModel>>> GetMultiplePeople()
+        public async Task<ApiResponse<List<PeopleModel>>> GetMultiplePeople()
         {
 
-            Task[] tasks = new Task[2];
+            Task[] tasks = new Task[4];
             tasks[0] = GetPeople(1);
             tasks[1] = GetPeople(2);
+            tasks[2] = GetPeople(3);
+            tasks[3] = GetPeople(4);
             await Task.WhenAll(tasks);
-            List<StarWarsModel> results = new List<StarWarsModel>();
+            List<PeopleModel> results = new List<PeopleModel>();
             foreach (var task in tasks)
             {
-                var result = ((Task<StarWarsModel>)task).Result;
+                var result = ((Task<PeopleModel>)task).Result;
                 results.Add(result);
             }
             if (results != null)
@@ -68,15 +69,16 @@ namespace StarWars_Core.Service
                 return ResponseHelper.GetResponse(results, false, APIConstant.ResponseMessage.Error, APIConstant.ErrorMessage.DATANOTFOUND, APIConstant.ResponseStatusCode.NotFound);
             }
         }
-        private async Task<StarWarsModel> GetPeople(int Id)
+        private async Task<PeopleModel> GetPeople(int Id)
         {
-            string requestEndpoint = "people/"+Id;
+
+            string requestEndpoint = APIConstant.Url.People + Id;
             HttpResponseMessage httpResponse = await _httpClient.GetAsync(requestEndpoint);
 
             if (httpResponse.IsSuccessStatusCode)
             {
                 var people = await httpResponse.Content.ReadAsStringAsync();
-                StarWarsModel result = JsonConvert.DeserializeObject<StarWarsModel>(people);
+                PeopleModel result = JsonConvert.DeserializeObject<PeopleModel>(people);
                 return result;
             }
             else
@@ -85,4 +87,4 @@ namespace StarWars_Core.Service
             }
         }
     }
-    }
+}

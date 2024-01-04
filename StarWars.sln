@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars", "StarWars\StarWars.csproj", "{C9803286-2AB8-4A90-8C04-ED5CCE9EEF79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars", "StarWars\StarWars.csproj", "{C9803286-2AB8-4A90-8C04-ED5CCE9EEF79}"
 	ProjectSection(ProjectDependencies) = postProject
 		{20BED515-9AE2-42E1-BDF4-A7B382BFE08D} = {20BED515-9AE2-42E1-BDF4-A7B382BFE08D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars_Core", "StarWars_Core\StarWars_Core.csproj", "{20BED515-9AE2-42E1-BDF4-A7B382BFE08D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Core", "StarWars_Core\StarWars.Core.csproj", "{20BED515-9AE2-42E1-BDF4-A7B382BFE08D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B7A58C24-70AD-4B42-B0C2-D4B2F9754234} = {B7A58C24-70AD-4B42-B0C2-D4B2F9754234}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars_Data", "StarWars_Data\StarWars_Data.csproj", "{B7A58C24-70AD-4B42-B0C2-D4B2F9754234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Data", "StarWars_Data\StarWars.Data.csproj", "{B7A58C24-70AD-4B42-B0C2-D4B2F9754234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Test", "StarWars.Test\StarWars.Test.csproj", "{0FD49B08-15BE-4D99-9CA7-DCABF997C40A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Test", "StarWars.Test\StarWars.Test.csproj", "{0FD49B08-15BE-4D99-9CA7-DCABF997C40A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Web", "StarWars.Web\StarWars.Web.csproj", "{28499810-92CF-486A-A47B-9EE8E989111D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWars.Web", "StarWars.Web\StarWars.Web.csproj", "{28499810-92CF-486A-A47B-9EE8E989111D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

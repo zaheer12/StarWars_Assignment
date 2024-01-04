@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace StarWars_Data.Models
+namespace StarWars.Web.Model
 {
-    public class StarWarsModel
+    public class PeopleModel
     {
         public string Name { get; set; }
         public int height { get; set; }

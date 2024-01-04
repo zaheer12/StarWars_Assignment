@@ -1,8 +1,62 @@
-﻿@{
+﻿@model IEnumerable<StarWars.Web.Model.PeopleModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@if (ViewBag.Error != null)
+{
+    <span style="color:red">@ViewBag.Error</span>
+}
+@if (Model!=null)
+{
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.Url)</th>
+                <th>@Html.DisplayNameFor(e => e.Name)</th>
+
+
+                <th>@Html.DisplayNameFor(e => e.height)</th>
+
+
+                <th>@Html.DisplayNameFor(e => e.Gender)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Created)</th>
+
+                <th>@Html.DisplayNameFor(e => e.Films)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @{
+                            string urlId = String.Join("", item.Url.Where(Char.IsDigit));
+                            @Html.ActionLink("People" + urlId, "People", new { id = urlId }, new { @class = "btn btn-xs btn-primary m-t-xs" })
+                        }
+                    </td>
+                    <td>@item.Name</td>
+
+                    <td>@item.height</td>
+                    <td>@item.Gender</td>
+
+                    <td>@item.Created</td>
+
+                    @foreach (var film in item.Films)
+                    {
+                        string id = String.Join("", film.Where(Char.IsDigit));
+                        <td>
+                            @Html.ActionLink("Film" + id, "Film", new { id = id }, new { @class = "btn btn-xs btn-primary m-t-xs" })
+                        </td>
+                    }
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
+
