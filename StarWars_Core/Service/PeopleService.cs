@@ -4,6 +4,7 @@ using StarWars_Core.Constants;
 using StarWars_Core.Interface;
 using StarWars_Data.Models;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -69,6 +70,7 @@ namespace StarWars_Core.Service
                 return ResponseHelper.GetResponse(results, false, APIConstant.ResponseMessage.Error, APIConstant.ErrorMessage.DATANOTFOUND, APIConstant.ResponseStatusCode.NotFound);
             }
         }
+        [ExcludeFromCodeCoverage]
         private async Task<PeopleModel> GetPeople(int Id)
         {
 

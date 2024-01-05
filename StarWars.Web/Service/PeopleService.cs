@@ -32,8 +32,7 @@ namespace StarWars.Web.Service
                 var getResponse = ResponseHelper.GetResponse(people);
                 if (getResponse.StatusCode == Constants.ResponseStatusCode.Success)
                 {
-                    var aa = JsonConvert.DeserializeObject<ApiResponse<List<PeopleModel>>>(getResponse.Data);
-                    return aa;
+                    return JsonConvert.DeserializeObject<ApiResponse<List<PeopleModel>>>(getResponse.Data);
                 }
                 return ResponseHelper.GetResponse(PeopleModel, false, Constants.ResponseMessage.Error, Constants.ErrorMessage.DATANOTFOUND, Constants.ResponseStatusCode.NotFound); ;
             }
@@ -58,8 +57,7 @@ namespace StarWars.Web.Service
                 var getResponse = ResponseHelper.GetResponse(people);
                 if (getResponse.StatusCode == Constants.ResponseStatusCode.Success)
                 {
-                    var aa = JsonConvert.DeserializeObject<ApiResponse<PeopleModel>>(getResponse.Data);
-                    return aa;
+                    return JsonConvert.DeserializeObject<ApiResponse<PeopleModel>>(getResponse.Data);
                 }
                 return ResponseHelper.GetResponse(PeopleModel, false, Constants.ResponseMessage.Error, Constants.ErrorMessage.DATANOTFOUND, Constants.ResponseStatusCode.NotFound); ;
             }
